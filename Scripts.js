@@ -18,7 +18,6 @@ function topFunction() {
 }
 
 gsap.registerPlugin(ScrollTrigger) 
-console.clear();
 gsap.set(".cardx", { position: "absolute" });
 
 // investor cards
