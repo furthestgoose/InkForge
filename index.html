@@ -72,22 +72,6 @@
     </p>
   </div>
 </footer>
-
-  <!-- Include your custom script file -->
-  <script type="module">
-    import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.9.0';
-
-    env.allowRemoteModels;
-      // this allows remote models to be run 
-    env.allowLocalModels=false;
-
-    // Create a text-generation pipeline
-  const generator = await pipeline('text-generation', 'Xenova/llama2.c-stories110M');
-
-  const text = 'In a scifi world, where humans are able to travel to other planets, a group of explorers find themselves stranded on a planet with no way to get back home. They must find a way to survive and make it back to Earth.';
-  const output = await generator(text, { max_new_tokens: 50 });
-  console.log(output);
-  </script>
   <script src="Scripts.js"></script>
 </body>
 </html>
