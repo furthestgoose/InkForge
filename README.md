@@ -47,6 +47,7 @@ This project is licensed under the GPL V3 License - see the [LICENSE](https://gi
 ## Credits
 
 [GSAP](https://gsap.com/)
+
 [Model Used](https://huggingface.co/Xenova/llama2.c-stories110M)
 
 ---
