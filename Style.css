@@ -429,13 +429,6 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
         top: -1%;
         border-radius: 4px;
       }
-
-      @media (max-width: 1024px) {
-        #Status {
-          font-size: 3vw; 
-          margin-top: 40%;
-        }
-      }
     .background{
         display: flex;
         background-image: url("https://static.vecteezy.com/system/resources/previews/014/459/781/original/modern-colorful-flow-line-poster-dynamic-3d-shape-wave-gradient-mesh-liquid-shape-in-neon-purple-background-color-abstract-lava-design-for-your-project-illustration-trendy-wallpaper-free-vector.jpg");
@@ -477,30 +470,9 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
         background-color: transparent;
         border: none;
       }
-      .typing-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-  }
-   .input-cursor {
-        display: inline-block;
-        width: 2px;
-        height: 42px;
-        background-color: white;
-        margin-left: 8px;
-  }
-  @keyframes blink {
-    0% {opacity: 1;}
-    40% {opacity: 1;}
-    60% {opacity: 0;}
-    100% {opacity: 0;}
-  }
-.input-cursor { 
-  animation: blink .6s linear infinite alternate;
-}
 
 
-@media(max-width: 798px) {
+@media(max-width: 1024px) {
     .showcase .showcase header {
         padding: 20px;
     }
@@ -520,5 +492,9 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 
     .text a {
         font-size: 0.8em;
+    }
+    #Status {
+      font-size: 3vw; 
+      margin-top: 40%;
     }
 }
