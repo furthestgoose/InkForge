@@ -17,7 +17,7 @@ To run InkForge on your device, follow these simple steps:
 1. Clone this repository to your local machine.
   
     ```bash
-    git clone https://github.com/your-username/inkforge.git
+    git clone  https://github.com/furthestgoose/InkForge.git
     ```
 
 2. Open the `index.html` file in your preferred web browser.
