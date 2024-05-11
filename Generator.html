@@ -10,33 +10,78 @@
 </head>
 <body>
     <section class = "background">
-        <section class = "box">
-            <div class="loader"></div>
-            <p id="Status"></p>
+        <section class = "frosted_box">
+            <div class="ai_output">
+                <div class="loader"></div>
+                <p id="Status">Loading model... (This may take a few minutes)</p>
+                <p id="Output"></p>
+            </div>
+            <form id="input-form">
+                <div class="input-container">
+                  <input id="input-field" type="text" placeholder="Type your message here">
+                  <button id="submit-button" type="submit">
+                    <img class="send-icon" src="Images/Send Message.png" alt="">
+                  </button>
+                </div>
+              </form>
         </section>
 
     </section>
+    <footer>
+        <div class="footer-container">
+          <a class="link footer-left" href="index.html">Back To Home</a>
+          <div class="footer-icons">
+            <ul>
+              <li><a href="https://linkedin.com/in/adam-byford-591888266" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a></li>
+              <li><a href="https://github.com/furthestgoose" target="_blank"><i class="fa fa-github fa-2x"></i></a></li>
+          </ul>
+          </div>
+        </div>
     
-    <!-- Your content goes here -->
+      <div class="copyright">
+        <p style="color: white;">
+          2024 &copy by Adam Byford. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script type="module">
+        var i = 0;
+        var speed = 50;
+        import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.9.0';
+        env.allowRemoteModels;
+        env.allowLocalModels=false;
     
-    <!-- Include your custom script file -->
-  <script type="module">
-    const status = document.getElementById("Status");
-    import { pipeline, env } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.9.0';
-
-    env.allowRemoteModels;
-      // this allows remote models to be run 
-    env.allowLocalModels=false;
-
-    // Create a text-generation pipeline
-    status.textContent = "Loading model...";
-    const generator = await pipeline('text-generation', 'Xenova/llama2.c-stories110M');
-    document.querySelector('.loader').style.display = 'none';
-    status.style.display = 'none';
-
-  const text = 'In a scifi world, where humans are able to travel to other planets, a group of explorers find themselves stranded on a planet with no way to get back home. They must find a way to survive and make it back to Earth.';
-  const output = await generator(text, { max_new_tokens: 50 });
-  console.log(output);
+        const inputForm = document.getElementById('input-form');
+        const inputField = document.getElementById('input-field');
+        const status = document.getElementById("Status");
+        const text_output = document.getElementById("Output");
+    
+        const generator = await pipeline('text-generation', 'Xenova/llama2.c-stories110M');
+        document.querySelector('.loader').style.display = 'none';
+        status.style.display = 'none';
+        
+        inputForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const input = inputField.value;
+    
+            inputField.value = '';
+    
+            const output = await generator(input, { max_new_tokens: 50 });
+            console.log(output);
+    
+            const text = " " + output[0].generated_text;
+            let charIndex = 0;
+            const displayText = setInterval(function() {
+                if (charIndex < text.length) {
+                    text_output.textContent += text.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(displayText);
+                }
+            }, speed);
+        });
+    </script>
+    
   </script>
 </body>
 </html>

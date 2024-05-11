@@ -221,7 +221,6 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
     font-weight: 400;
     max-width: 700px;
     z-index: 4;
-    /* box-sizing: border-box; */
     margin-left: auto;
     margin-right: auto;
     scroll-snap-align: top;
@@ -232,7 +231,6 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
   }
   
   .cardx:nth-child(3) {
-    /* top: calc(var(--spacing) * 3); */
     height: 200px;
     z-index: 2;
   }
@@ -367,7 +365,8 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
         border-top: 16px solid lightskyblue;
         width: 120px;
         height: 120px;
-        -webkit-animation: spin 2s linear infinite; /* Safari */
+        order: 1;
+        -webkit-animation: spin 2s linear infinite; 
         animation: spin 2s linear infinite;
       }
       
@@ -381,30 +380,124 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
-
-    .box{
-        background-color: rgba(255, 255, 255, .15);  
+      
+      .frosted_box {
+        background-color: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(5px);
-        margin: auto;
-        width: 95%;
+        width: 95vw;
+        height: 95vh; 
         padding: 10px;
-        padding-top: 20%;
         margin: auto;
-        height: 95%;
-        justify-content: center;
         display: flex;
-    }
-    #Status{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border-radius: 4px;
+      }
+      
+      #Status {
+        margin-top: 10%;
         font-size: 2em;
         color: white;
         text-align: center;
-        padding-top: 120px;
-        position: fixed;}
+        position: fixed;
+        order: 2;
+      }
+      #Output{
+        top: 0%;
+        font-size: 1.5em;
+        color: white;
+        text-align: center;
+        position: fixed;
+        overflow-y: auto;
+        width: 94vw;
+        height: 85vh;
+      }
+      
+      .ai_output {
+        background-image: linear-gradient(43deg, #4158D0, #C850C0, #FFCC70);
+        width: 94vw;
+        height: 85vh;
+        max-height: 85vh; 
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1; 
+        top: -1%;
+        border-radius: 4px;
+      }
+
+      @media (max-width: 1024px) {
+        #Status {
+          font-size: 3vw; 
+          margin-top: 40%;
+        }
+      }
     .background{
         display: flex;
         background-image: url("https://static.vecteezy.com/system/resources/previews/014/459/781/original/modern-colorful-flow-line-poster-dynamic-3d-shape-wave-gradient-mesh-liquid-shape-in-neon-purple-background-color-abstract-lava-design-for-your-project-illustration-trendy-wallpaper-free-vector.jpg");
         height: 100%;
     }
+    .input-container {
+        display: flex;
+        width: 93vw;
+        position: relative; 
+      }
+      
+      #input-field {
+        flex: 1;
+        width: 94vw;
+        height: 60px;
+        border: 1px solid #eef1f5;
+        border-radius: 4px;
+        padding: 0 40px 0 10px; 
+        font-size: 14px;
+        transition: border-color 0.3s;
+        background: #ffffff;
+        color: #333333;
+        border: none;
+      }
+      
+      .send-icon {
+        position: absolute; 
+        right: 10px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+        cursor: pointer;
+      }
+      
+      #input-field:focus {
+        outline: none;
+      }
+      
+      #submit-button {
+        background-color: transparent;
+        border: none;
+      }
+      .typing-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+   .input-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 42px;
+        background-color: white;
+        margin-left: 8px;
+  }
+  @keyframes blink {
+    0% {opacity: 1;}
+    40% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 0;}
+  }
+.input-cursor { 
+  animation: blink .6s linear infinite alternate;
+}
 
 
 @media(max-width: 798px) {

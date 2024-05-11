@@ -1,7 +1,7 @@
 // Get the button
 let mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
+
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -12,7 +12,6 @@ function scrollFunction() {
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 }
@@ -65,15 +64,14 @@ horizontalSections.forEach(function (sec, i) {
 });	
 
 let footer = document.querySelector("footer"),
-    getOverlap = () => Math.min(window.innerHeight, footer.offsetHeight), // we never want it to overlap more than the height of the screen
-    adjustFooterOverlap = () => footer.style.marginTop = -getOverlap() + "px"; // adjusts the margin-top of the footer to overlap the proper amount
+    getOverlap = () => Math.min(window.innerHeight, footer.offsetHeight),
+    adjustFooterOverlap = () => footer.style.marginTop = -getOverlap() + "px";
 
 adjustFooterOverlap();
 
-// to make it responsive, re-calculate the margin-top on the footer when the ScrollTriggers revert
 ScrollTrigger.addEventListener("revert", adjustFooterOverlap);
 
-// magic
+
 ScrollTrigger.create({
   trigger: footer,
   start: () => "top " + (window.innerHeight - getOverlap()),
