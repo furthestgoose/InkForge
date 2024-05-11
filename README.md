@@ -24,7 +24,7 @@ To run InkForge on your device, follow these simple steps:
 
 3. Explore the interactive home page and start generating your own stories!
 
-Or use the github pages site located [here]()
+Or use the github pages site located [here](https://furthestgoose.github.io/InkForge/)
 
 ## Technologies Used
 
